@@ -7,7 +7,7 @@ public class Author
 {
     public int Id { get; set; } // Primärnyckel
 
-    [Required] // Obligatoriskt
+    [Required(ErrorMessage = "Författare måste anges")] // Författare måste anges
     [Display(Name = "Författare")] // Visa "Författare" i formuläret
     public string Name { get; set; } = string.Empty; // Namn på författaren
 
