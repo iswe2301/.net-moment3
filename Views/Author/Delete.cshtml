@@ -18,9 +18,14 @@
         </dd>
     </dl>
 
-    <form asp-action="Delete">
+    <form asp-action="Delete" class="mt-4 mb-4">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Radera" class="btn btn-danger" /> |
-        <a asp-action="Index" class="btn btn-secondary">Tillbaka till lista</a>
+        <button type="submit" class="mybtn max-w-btn btn btn-danger"><i class="bi bi-trash"></i> Radera
+            författare</button>
     </form>
+
+    <div>
+        <a asp-action="Index" class="mybtn max-w-btn btn btn-secondary"><i class="bi bi-arrow-left"></i> Tillbaka till
+            lista</a>
+    </div>
 </div>
