@@ -11,8 +11,20 @@ h1 {
   margin-left: 2rem;
 }
 
+.mybtn {
+  width: 100%;
+}
+
+.max-w-btn {
+  max-width: 400px;
+}
+
+i {
+  margin-right: 5px;
+}
+
 /* Responsive design */
-@media (max-width: 768px) {
+@media (max-width: 575px) {
   nav a {
     margin-right: 0;
   }
@@ -23,5 +35,9 @@ h1 {
 
   h1 {
     margin-left: 0;
+  }
+
+  .btn-primary {
+    width: 100%;
   }
 }
