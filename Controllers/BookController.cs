@@ -20,6 +20,8 @@ namespace BookApp.Controllers
         }
 
         // GET: Book
+        [Route("/")]
+        [Route("/bocker")]
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Books.Include(b => b.Author);
@@ -27,6 +29,7 @@ namespace BookApp.Controllers
         }
 
         // GET: Book/Details/5
+        [Route("/bocker/detaljer/{id}")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -46,6 +49,7 @@ namespace BookApp.Controllers
         }
 
         // GET: Book/Create
+        [Route("/bocker/lagg-till")]
         public IActionResult Create()
         {
             ViewData["AuthorId"] = new SelectList(_context.Authors, "Id", "Name");
@@ -57,6 +61,7 @@ namespace BookApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("/bocker/lagg-till")]
         public async Task<IActionResult> Create([Bind("Id,Title,PublicationYear,AuthorId")] Book book)
         {
             if (ModelState.IsValid)
@@ -70,6 +75,7 @@ namespace BookApp.Controllers
         }
 
         // GET: Book/Edit/5
+        [Route("/bocker/andra/{id}")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -91,6 +97,7 @@ namespace BookApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("/bocker/andra/{id}")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Title,PublicationYear,AuthorId")] Book book)
         {
             if (id != book.Id)
@@ -123,6 +130,7 @@ namespace BookApp.Controllers
         }
 
         // GET: Book/Delete/5
+        [Route("/bocker/radera/{id}")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -144,6 +152,7 @@ namespace BookApp.Controllers
         // POST: Book/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Route("/bocker/radera/{id}")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var book = await _context.Books.FindAsync(id);
