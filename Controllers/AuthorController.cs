@@ -36,6 +36,7 @@ namespace BookApp.Controllers
             }
 
             var author = await _context.Authors
+                .Include(a => a.Books) // Hämtar alla böcker som tillhör författaren
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (author == null)
             {
