@@ -8,7 +8,7 @@
 <h3>Författare</h3>
 <hr />
 <div>
-    <h4>Är du säker på att du vill ta bort denna författare?</h4>
+    <h4 class="mb-4">Är du säker på att du vill ta bort denna författare?</h4>
     <dl class="row">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
@@ -21,6 +21,6 @@
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Radera" class="btn btn-danger" /> |
-        <a asp-action="Index">Tillbaka till lista</a>
+        <a asp-action="Index" class="btn btn-secondary">Tillbaka till lista</a>
     </form>
 </div>
