@@ -20,12 +20,14 @@ namespace BookApp.Controllers
         }
 
         // GET: Author
+        [Route("/forfattare")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Authors.ToListAsync());
         }
 
         // GET: Author/Details/5
+        [Route("/forfattare/detaljer/{id}")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -44,6 +46,7 @@ namespace BookApp.Controllers
         }
 
         // GET: Author/Create
+        [Route("/forfattare/lagg-till")]
         public IActionResult Create()
         {
             return View();
@@ -54,6 +57,7 @@ namespace BookApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("/forfattare/lagg-till")]
         public async Task<IActionResult> Create([Bind("Id,Name")] Author author)
         {
             if (ModelState.IsValid)
@@ -66,6 +70,7 @@ namespace BookApp.Controllers
         }
 
         // GET: Author/Edit/5
+        [Route("/forfattare/andra/{id}")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -86,6 +91,7 @@ namespace BookApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("/forfattare/andra/{id}")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Author author)
         {
             if (id != author.Id)
@@ -117,6 +123,7 @@ namespace BookApp.Controllers
         }
 
         // GET: Author/Delete/5
+        [Route("/forfattare/radera/{id}")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -137,6 +144,7 @@ namespace BookApp.Controllers
         // POST: Author/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Route("/forfattare/radera/{id}")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var author = await _context.Authors.FindAsync(id);
