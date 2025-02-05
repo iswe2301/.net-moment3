@@ -16,9 +16,9 @@ public class Book
     public int PublicationYear { get; set; } // Utgivningsår
 
     // Främmandenyckel för författare
+    [Required] // Obligatoriskt fält
     public int AuthorId { get; set; }
 
-    // Författare som boken tillhör från Author-modellen, required för att det är obligatoriskt att en bok har en författare
-    [Required]
-    public required Author Author { get; set; }
+    // Författare som boken tillhör från Author-modellen
+    public Author? Author { get; set; }
 }
