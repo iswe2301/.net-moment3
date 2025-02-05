@@ -21,32 +21,34 @@
     <!-- Kontrollerar om det finns några böcker registrerade för författaren -->
     @if (Model.Books != null && Model.Books.Any())
     {
-        <!-- Tabell för att visa böckerna -->
-        <table class="table mb-4">
-            <thead>
-                <tr>
-                    <th>Titel</th>
-                    <th>Utgivningsår</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Loopar igenom böckerna och skriver ut dem i tabellen -->
-                @foreach (var book in Model.Books)
-                {
+        <div class="table-responsive">
+            <!-- Tabell för att visa böckerna -->
+            <table class="table mb-4 table-striped table-hover">
+                <thead>
                     <tr>
-                        <!-- Titel och årtal för boken -->
-                        <td>@book.Title</td>
-                        <td>@book.PublicationYear</td>
-                        <td>
-                            <!-- Länk till detaljer för boken -->
-                            <a asp-controller="Book" asp-action="Details" asp-route-id="@book.Id"
-                                class="btn btn-info btn-sm">Detaljer</a>
-                        </td>
+                        <th>Titel</th>
+                        <th>Utgivningsår</th>
+                        <th></th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <!-- Loopar igenom böckerna och skriver ut dem i tabellen -->
+                    @foreach (var book in Model.Books)
+                    {
+                        <tr>
+                            <!-- Titel och årtal för boken -->
+                            <td>@book.Title</td>
+                            <td>@book.PublicationYear</td>
+                            <td>
+                                <!-- Länk till detaljer för boken -->
+                                <a asp-controller="Book" asp-action="Details" asp-route-id="@book.Id"
+                                    class="btn btn-info btn-sm">Detaljer</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     }
     else
     {
