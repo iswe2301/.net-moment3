@@ -13,22 +13,22 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
+            <div class="form-group mb-3">
+                <label asp-for="Title" class="control-label fw-bold mb-1"></label>
                 <input asp-for="Title" class="form-control" />
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="PublicationYear" class="control-label"></label>
+            <div class="form-group mb-3">
+                <label asp-for="PublicationYear" class="control-label fw-bold a mb-1"></label>
                 <input asp-for="PublicationYear" class="form-control" />
                 <span asp-validation-for="PublicationYear" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="AuthorId" class="control-label"></label>
+            <div class="form-group mb-3">
+                <label asp-for="AuthorId" class="control-label fw-bold mb-1"></label>
                 <select asp-for="AuthorId" class="form-control" asp-items="ViewBag.AuthorId"></select>
                 <span asp-validation-for="AuthorId" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mb-3">
                 <input type="submit" value="Spara ändringar" class="btn btn-primary" />
             </div>
         </form>
@@ -36,7 +36,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Tillbaka till lista</a>
+    <a asp-action="Index" class="btn btn-secondary">Tillbaka till lista</a>
 </div>
 
 @section Scripts {
