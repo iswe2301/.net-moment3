@@ -7,18 +7,54 @@
 <h2>Detaljer</h2>
 
 <div>
-    <h3>Författare</h3>
+    <h3 class="mt-3">Författare</h3>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Name)
         </dd>
     </dl>
+    <h4 class="mt-3 mb-3">Böcker av denna författare</h4>
+    <!-- Kontrollerar om det finns några böcker registrerade för författaren -->
+    @if (Model.Books != null && Model.Books.Any())
+    {
+        <!-- Tabell för att visa böckerna -->
+        <table class="table mb-4">
+            <thead>
+                <tr>
+                    <th>Titel</th>
+                    <th>Utgivningsår</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Loopar igenom böckerna och skriver ut dem i tabellen -->
+                @foreach (var book in Model.Books)
+                {
+                    <tr>
+                        <!-- Titel och årtal för boken -->
+                        <td>@book.Title</td>
+                        <td>@book.PublicationYear</td>
+                        <td>
+                            <!-- Länk till detaljer för boken -->
+                            <a asp-controller="Book" asp-action="Details" asp-route-id="@book.Id"
+                                class="btn btn-info btn-sm">Detaljer</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <!-- Om det inte finns några böcker registrerade för författaren -->
+        <p>Denna författare har inga registrerade böcker.</p>
+    }
 </div>
-<div>
+<div class="mt-4">
     <a asp-action="Edit" class="btn btn-warning" asp-route-id="@Model?.Id">Ändra</a> |
     <a asp-action="Index" class="btn btn-secondary">Tillbaka till lista</a>
 </div>
