@@ -15,4 +15,6 @@ public class ApplicationDbContext : DbContext
     // DbSet för att skapa tabeller i databasen
     public DbSet<Book> Books { get; set; } // Tabell för böcker baserat på modellen Book
     public DbSet<Author> Authors { get; set; } // Tabell för författare baserat på modellen Author
+    public DbSet<User> Users { get; set; } // Tabell för användare baserat på modellen User
+    public DbSet<Loan> Loans { get; set; } // Tabell för boklån baserat på modellen Loan
 }
