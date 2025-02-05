@@ -33,7 +33,9 @@
         </dd>
     </dl>
 </div>
+<div class="mb-4 mt-4">
+    <a asp-action="Edit" class="mybtn max-w-btn btn btn-warning" asp-route-id="@Model?.Id"><i class="bi bi-pencil-square"></i> Ändra bok</a>
+</div>
 <div>
-    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@Model?.Id">Ändra</a> |
-    <a asp-action="Index" class="btn btn-secondary">Tillbaka till lista</a>
+    <a asp-action="Index" class="mybtn max-w-btn btn btn-secondary"><i class="bi bi-arrow-left"></i> Tillbaka till lista</a>
 </div>

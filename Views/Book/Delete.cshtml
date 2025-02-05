@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Radera";
-    
+
     // Variabel för att hantera om det finns en författare eller inte
     string authorName = Model.Author != null ? Model.Author.Name : "Ingen författare";
 }
@@ -13,29 +13,32 @@
 <div>
     <h4 class="mb-4">Är du säker på att du vill ta bort denna bok?</h4>
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Title)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Title)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.PublicationYear)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.PublicationYear)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Author)
         </dt>
-        <dd class = "col-sm-10">
-                @authorName
+        <dd class="col-sm-10">
+            @authorName
         </dd>
     </dl>
-    
-    <form asp-action="Delete" class="mt-4">
+
+    <form asp-action="Delete" class="mt-4 mb-4">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Radera" class="btn btn-danger" /> |
-        <a asp-action="Index" class="btn btn-secondary">Tillbaka till lista</a>
+        <button type="submit" class="mybtn max-w-btn btn btn-danger"><i class="bi bi-trash"></i> Radera bok</button>
     </form>
+
+    <div>
+        <a asp-action="Index" class="mybtn max-w-btn btn btn-secondary"><i class="bi bi-arrow-left"></i> Tillbaka till listan</a>
+    </div>
 </div>
