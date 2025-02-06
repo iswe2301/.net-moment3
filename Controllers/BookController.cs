@@ -22,10 +22,23 @@ namespace BookApp.Controllers
         // GET: Book
         [Route("/")]
         [Route("/bocker")]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string search)
         {
-            var applicationDbContext = _context.Books.Include(b => b.Author);
-            return View(await applicationDbContext.ToListAsync());
+            // Hämtar alla böcker inklusive författare
+            var books = _context.Books.Include(b => b.Author).AsQueryable();
+
+            // Kontrollerar om söksträngen inte är tom/ null
+            if (!string.IsNullOrEmpty(search))
+            {
+                // Filtrerar böcker baserat på söksträngen (titel eller författare), konverterar till gemener
+                books = books.Where(b => b.Title.ToLower().Contains(search.ToLower()) || (b.Author != null && b.Author.Name.ToLower().Contains(search.ToLower())));
+            }
+
+            var bookList = await books.ToListAsync(); // Hämtar böckerna som en lista
+
+            ViewBag.NoBooks = !bookList.Any(); // Skapar en ViewBag-variabel som indikerar om det inte finns några böcker
+
+            return View(bookList); // Returnerar vyn med böckerna
         }
 
         // GET: Book/Details/5
