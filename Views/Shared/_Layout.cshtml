@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,22 +11,35 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/BookApp.styles.css" asp-append-version="true" />
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Book" asp-action="Index"><h1 class="fw-bold text-primary">BokAppen</h1></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand" asp-area="" asp-controller="Book" asp-action="Index">
+                    <h1 class="fw-bold text-primary">BokAppen</h1>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
                     <ul class="navbar-nav text-center">
                         <li class="nav-item">
-                            <a class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Book" ? "active fw-bold text-primary" : "text-dark")"  asp-area="" asp-controller="Book" asp-action="Index">Böcker</a>
+                            <a class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Book" ? "active fw-bold text-primary" : "text-dark")"
+                                asp-area="" asp-controller="Book" asp-action="Index">Böcker</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Author" ? "active fw-bold text-primary" : "text-dark")" asp-area="" asp-controller="Author" asp-action="Index">Författare</a>
+                            <a class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Author" ? "active fw-bold text-primary" : "text-dark")"
+                                asp-area="" asp-controller="Author" asp-action="Index">Författare</a>
+                        </li>
+                        <li>
+                            <a class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Loan" ? "active fw-bold text-primary" : "text-dark")"
+                                asp-area="" asp-controller="Loan" asp-action="Index">Boklån</a>
+                        </li>
+                        <li>
+                            <a class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "User" ? "active fw-bold text-primary" : "text-dark")"
+                                asp-area="" asp-controller="User" asp-action="Index">Användare</a>
                         </li>
                     </ul>
                 </div>
@@ -48,4 +62,5 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>
