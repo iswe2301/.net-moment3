@@ -17,6 +17,7 @@ public class User
     public string Email { get; set; } = string.Empty; // E-postadress, satt till tom sträng som default
 
     [Display(Name = "Telefonnummer")] // Visas som "Telefonnummer" i formuläret
+    [Phone(ErrorMessage = "Ange ett giltigt telefonnummer")] // Validerar att det är ett giltigt telefonnummer
     public string? Phone { get; set; } // Telefonnummer, kan vara null
 
     public List<Loan> Loans { get; set; } = new List<Loan>(); // Lista över lån som användaren har
