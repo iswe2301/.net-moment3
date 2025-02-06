@@ -20,12 +20,14 @@ namespace BookApp.Controllers
         }
 
         // GET: User
+        [Route("/anvandare")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Users.ToListAsync());
         }
 
         // GET: User/Details/5
+        [Route("/anvandare/detaljer/{id}")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -44,6 +46,7 @@ namespace BookApp.Controllers
         }
 
         // GET: User/Create
+        [Route("/anvandare/lagg-till")]
         public IActionResult Create()
         {
             return View();
@@ -54,6 +57,7 @@ namespace BookApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("/anvandare/lagg-till")]
         public async Task<IActionResult> Create([Bind("Id,Name,Email,Phone")] User user)
         {
             if (ModelState.IsValid)
@@ -66,6 +70,7 @@ namespace BookApp.Controllers
         }
 
         // GET: User/Edit/5
+        [Route("/anvandare/andra/{id}")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -86,6 +91,7 @@ namespace BookApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("/anvandare/andra/{id}")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Email,Phone")] User user)
         {
             if (id != user.Id)
@@ -117,6 +123,7 @@ namespace BookApp.Controllers
         }
 
         // GET: User/Delete/5
+        [Route("/anvandare/radera/{id}")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -137,6 +144,7 @@ namespace BookApp.Controllers
         // POST: User/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Route("/anvandare/radera/{id}")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var user = await _context.Users.FindAsync(id);

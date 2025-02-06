@@ -20,6 +20,7 @@ namespace BookApp.Controllers
         }
 
         // GET: Loan
+        [Route("/boklan")]
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Loans.Include(l => l.Book).Include(l => l.User);
@@ -27,6 +28,7 @@ namespace BookApp.Controllers
         }
 
         // GET: Loan/Details/5
+        [Route("/boklan/detaljer/{id}")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -47,6 +49,7 @@ namespace BookApp.Controllers
         }
 
         // GET: Loan/Create
+        [Route("/boklan/lagg-till")]
         public IActionResult Create()
         {
             ViewData["BookId"] = new SelectList(_context.Books, "Id", "Title");
@@ -59,6 +62,7 @@ namespace BookApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("/boklan/lagg-till")]
         public async Task<IActionResult> Create([Bind("Id,BookId,UserId,LoanDate,ReturnDate")] Loan loan)
         {
             if (ModelState.IsValid)
@@ -73,6 +77,7 @@ namespace BookApp.Controllers
         }
 
         // GET: Loan/Edit/5
+        [Route("/boklan/andra/{id}")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -95,6 +100,7 @@ namespace BookApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("/boklan/andra/{id}")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,BookId,UserId,LoanDate,ReturnDate")] Loan loan)
         {
             if (id != loan.Id)
@@ -128,6 +134,7 @@ namespace BookApp.Controllers
         }
 
         // GET: Loan/Delete/5
+        [Route("/boklan/radera/{id}")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -150,6 +157,7 @@ namespace BookApp.Controllers
         // POST: Loan/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Route("/boklan/radera/{id}")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var loan = await _context.Loans.FindAsync(id);
