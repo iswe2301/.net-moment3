@@ -44,10 +44,26 @@
                     @Html.DisplayFor(modelItem => item.ReturnDate)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Book.Title)
+                    <!-- Kontrollerar om det finns en bok eller inte och visar titel -->
+                    @if (item.Book != null)
+                    {
+                        @Html.DisplayFor(modelItem => item.Book.Title)
+                    }
+                    else
+                    {
+                        <span>Ingen bok</span>
+                    }
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.User.Email)
+                    <!-- Kontrollerar om det finns en användare eller inte och visar epost -->
+                    @if (item.User != null)
+                    {
+                        @Html.DisplayFor(modelItem => item.User.Email)
+                    }
+                    else
+                    {
+                        <span>Ingen användare</span>
+                    }
                 </td>
                 <td class="text-center">
                     <div class="btn-group" role="group">
