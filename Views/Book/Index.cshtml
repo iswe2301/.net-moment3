@@ -15,7 +15,7 @@
         <!-- Sökfält för att söka efter boktitel eller författare -->
         <label for="search" class="visually-hidden">Sök efter boktitel eller författare</label>
         <!-- Sparar söksträngen i querystring -->
-        <input type="text" name="search" class="form-control" placeholder="Sök efter boktitel eller författare..."
+        <input type="text" id="search" name="search" class="form-control" placeholder="Sök efter boktitel eller författare..."
             value="@Context.Request.Query["search"]">
         <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i> Sök</button>
         <!-- Kontrollerar om sökfältet är ifyllt -->
