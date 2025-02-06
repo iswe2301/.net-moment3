@@ -35,7 +35,22 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Status)
+                    <!-- Kontrollerar status och visar badge -->
+                    @if (item.Status == LoanStatus.Försenad)
+                    {
+                        <span class="badge bg-danger">●</span>
+                        <span> Försenad</span>
+                    }
+                    else if (item.Status == LoanStatus.Återlämnad)
+                    {
+                        <span class="badge bg-success">●</span>
+                        <span> Återlämnad</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary">●</span>
+                        <span> Utlånad</span>
+                    }
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.LoanDate)
