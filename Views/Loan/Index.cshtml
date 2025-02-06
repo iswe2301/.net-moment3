@@ -9,88 +9,90 @@
 <p>
     <a asp-action="Create" class="btn btn-primary mt-3 mb-3"><i class="bi bi-plus-lg"></i> Lägg till nytt boklån</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LoanDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ReturnDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Book)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+<div class="table-responsive">
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                    <!-- Kontrollerar status och visar badge -->
-                    @if (item.Status == LoanStatus.Försenad)
-                    {
-                        <span class="badge bg-danger">●</span>
-                        <span> Försenad</span>
-                    }
-                    else if (item.Status == LoanStatus.Återlämnad)
-                    {
-                        <span class="badge bg-success">●</span>
-                        <span> Återlämnad</span>
-                    }
-                    else
-                    {
-                        <span class="badge bg-secondary">●</span>
-                        <span> Utlånad</span>
-                    }
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LoanDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ReturnDate)
-                </td>
-                <td>
-                    <!-- Kontrollerar om det finns en bok eller inte och visar titel -->
-                    @if (item.Book != null)
-                    {
-                        @Html.DisplayFor(modelItem => item.Book.Title)
-                    }
-                    else
-                    {
-                        <span>Ingen bok</span>
-                    }
-                </td>
-                <td>
-                    <!-- Kontrollerar om det finns en användare eller inte och visar epost -->
-                    @if (item.User != null)
-                    {
-                        @Html.DisplayFor(modelItem => item.User.Email)
-                    }
-                    else
-                    {
-                        <span>Ingen användare</span>
-                    }
-                </td>
-                <td class="text-center">
-                    <div class="btn-group" role="group">
-                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm"><i
-                                class="bi bi-pencil-square"></i> Ändra</a>
-                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm"><i
-                                class="bi bi-info-circle"></i> Detaljer</a>
-                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm"><i
-                                class="bi bi-trash"></i> Radera</a>
-                    </div>
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LoanDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ReturnDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Book)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.User)
+                </th>
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="status">
+                        <!-- Kontrollerar status och visar badge -->
+                        @if (item.Status == LoanStatus.Försenad)
+                        {
+                                <span class="badge bg-danger">●</span>
+                                <span> Försenad</span>
+                        }
+                        else if (item.Status == LoanStatus.Återlämnad)
+                        {
+                            <span class="badge bg-success">●</span>
+                            <span> Återlämnad</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary">●</span>
+                            <span> Utlånad</span>
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LoanDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReturnDate)
+                    </td>
+                    <td>
+                        <!-- Kontrollerar om det finns en bok eller inte och visar titel -->
+                        @if (item.Book != null)
+                        {
+                            @Html.DisplayFor(modelItem => item.Book.Title)
+                        }
+                        else
+                        {
+                            <span>Ingen bok</span>
+                        }
+                    </td>
+                    <td>
+                        <!-- Kontrollerar om det finns en användare eller inte och visar epost -->
+                        @if (item.User != null)
+                        {
+                            @Html.DisplayFor(modelItem => item.User.Email)
+                        }
+                        else
+                        {
+                            <span>Ingen användare</span>
+                        }
+                    </td>
+                    <td class="text-center">
+                        <div class="btn-group" role="group">
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm"><i
+                                    class="bi bi-pencil-square"></i> Ändra</a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm"><i
+                                    class="bi bi-info-circle"></i> Detaljer</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm"><i
+                                    class="bi bi-trash"></i> Radera</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
