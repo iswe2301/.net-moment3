@@ -1,41 +1,42 @@
 @model BookApp.Models.User
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Lägg till användare";
 }
 
-<h1>Create</h1>
+<h2>Lägg till</h2>
 
-<h4>User</h4>
+<h3 class="mt-3">Användare</h3>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
+            <div class="form-group mb-3">
+                <label asp-for="Name" class="control-label fw-bold mb-1"></label>
+                <input asp-for="Name" class="form-control" placeholder="Ange ditt namn" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
+            <div class="form-group mb-3">
+                <label asp-for="Email" class="control-label fw-bold mb-1"></label>
+                <input asp-for="Email" class="form-control" placeholder="Ange din e-postadress" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Phone" class="control-label"></label>
-                <input asp-for="Phone" class="form-control" />
+            <div class="form-group mb-3">
+                <label asp-for="Phone" class="control-label fw-bold mb-1"></label>
+                <input asp-for="Phone" class="form-control" placeholder="Ange ditt telefonnummer" />
                 <span asp-validation-for="Phone" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                        <div class="form-group mb-3">
+                <button type="submit" class="mybtn btn btn-primary"><i class="bi bi-plus-circle"></i> Lägg till
+                    användare</button>
             </div>
         </form>
+        <div>
+            <a asp-action="Index" class="mybtn btn btn-secondary"><i class="bi bi-arrow-left"></i> Tillbaka till
+                lista</a>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
